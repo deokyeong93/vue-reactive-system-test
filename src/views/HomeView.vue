@@ -1,5 +1,10 @@
 <template>
   <div class='pt-12 d-flex flex-column align-center'>
+    <v-btn @click="makeNewData">makeNewData</v-btn>
+    <div class="mb-12">{{newKey}}</div>
+    <div class='py-12'>
+      ---------------구분선------------
+    </div>
     <div class="d-flex pb-12">
       <v-btn @click="pushArr">pushArr</v-btn>
       <v-btn @click="objectAddFunc">객체 인덱싱 식추가</v-btn>
@@ -40,7 +45,8 @@ export default {
   name: 'HelloWorld',
   data() {
     return {
-      arr: [1, 2, 3],
+      arr: [1, 2, 3, 4],
+      newKey: '',
       dep1: {
         dep1Value: 'dep1의 값',
         dep2: {
@@ -53,6 +59,11 @@ export default {
     };
   },
   methods: {
+    makeNewData() {
+      this.newKey = '추가';
+      console.log(this.newKey);
+    },
+    //
     pushArr() {
       this.arr.push(Math.random());
       console.log('addSetDeps1=>', this.arr);
